@@ -4,12 +4,13 @@ jQuery(function($)
     $(".cep").mask("99.999-999");
     $(".cpf").mask("999.999.999-99");
     $(".tempo").mask("99:99:99");
+    $('.ip').mask('999.999.999.999');
     $('.dinheiro').priceFormat({
         prefix: 'R$ ',
         centsSeparator: ',',
         thousandsSeparator: '.',
     });    
-   
+
     $(".telefone").mask("(99) 9999-9999?9");
     $(".telefone").focusout(function(){
         var phone, element;

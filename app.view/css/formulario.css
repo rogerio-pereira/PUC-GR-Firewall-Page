@@ -17,6 +17,7 @@
 
 input, select, textarea
 {
+    position: relative;
     width: 100%;
     -webkit-border-radius:  8px;
     -moz-border-radius:     8px;
@@ -43,6 +44,11 @@ input, select, textarea
 input:hover, select:hover, textarea:hover
 {
     border: solid 1px #999999;
+}
+
+input[type="radio"], input[type="checkbox"]
+{
+    display: inline !important;
 }
 
 input[type="submit"], input[type="button"]

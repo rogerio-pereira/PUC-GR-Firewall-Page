@@ -112,7 +112,7 @@
                  */
                 else
                 {
-                    $pagina   = new home;
+                    $pagina   = new salvarRegra;
                     ob_start();
                     $pagina->show();
                     $content  = ob_get_contents();

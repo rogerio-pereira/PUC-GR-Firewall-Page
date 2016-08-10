@@ -7,6 +7,7 @@ body
     margin:         0;
     padding:        0;
     font-size:      1.2em;
+    overflow-x:     hidden;
 }
 
 hr
@@ -27,7 +28,7 @@ strong
 h1,h2,h3,h4,h5,h6
 {
     font-weight:    bold;
-    margin:         0px;
+    margin-bottom:         20px;
 }
 
 h1
@@ -74,7 +75,6 @@ p
 
 .center
 {
-    width:          100%;
     margin-left:    auto;
     margin-right:   auto;
     text-align:     center;
@@ -104,6 +104,12 @@ p
  {
     padding-top:    20px;
     padding-bottom: 90px;
+ }
+
+ .iconeApagar
+ {
+    position: relative;
+    margin-top: 15px;
  }
 
 /*
