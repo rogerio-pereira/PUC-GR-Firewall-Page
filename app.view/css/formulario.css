@@ -57,6 +57,12 @@ input[type="submit"], input[type="button"]
     color: black;
 }
 
+input[type="submit"]
+{
+    background-color: #4EC95C;
+    border-color: black;
+}
+
 #tinymce
 {
     position: relative;
