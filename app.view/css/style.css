@@ -112,8 +112,9 @@ header h1
 
  .iconeApagar
  {
-    position: relative;
+    position:   relative;
     margin-top: 15px;
+    cursor:     pointer;
  }
 
 /*

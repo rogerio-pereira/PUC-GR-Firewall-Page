@@ -53,14 +53,15 @@ input[type="radio"], input[type="checkbox"]
 
 input[type="submit"], input[type="button"]
 {
-    width: 80px;
-    color: black;
+    width:  80px;
+    color:  black;
+    cursor: pointer;
 }
 
 input[type="submit"]
 {
-    background-color: #4EC95C;
-    border-color: black;
+    background-color:   #4EC95C;
+    border-color:       black;
 }
 
 #tinymce

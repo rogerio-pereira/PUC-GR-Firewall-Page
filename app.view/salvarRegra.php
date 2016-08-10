@@ -37,9 +37,11 @@
 		public function show()
 		{
 			?>
+				<div id='retornoTeste'></div>
+
 				<form
-					name='firewall'
-					id='firewall'
+					name='firewallForm'
+					id='firewallForm'
 					action=''
 					method='post'
 				>
@@ -54,12 +56,12 @@
 
 					<div class='row center'>
 						<div class='2u -4u'>
-							<input type='radio' name='operacao' id='whitelist' value='whitelist'> 
+							<input type='radio' name='operacao' id='whitelist' value='whitelist' required> 
 							<label for='whitelist'>Whitelist</label>
 						</div>
 
 						<div class='1u'>
-							<input type='radio' name='operacao' id='blacklist' value='blacklist'>
+							<input type='radio' name='operacao' id='blacklist' value='blacklist' required>
 							<label for='blacklist'>Blacklist</label>
 						</div>
 					</div>

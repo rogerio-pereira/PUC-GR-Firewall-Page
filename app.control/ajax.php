@@ -29,26 +29,12 @@
     //error_reporting(E_WARNING);
 
     //Obtem informação do que sera feito através do campo action
-    $request = $_POST['request'];
+    //$request = $_POST['request'];
 
-    if($request == 'enviaContato')
-    {
-        $nome       = $_POST['#nome'];
-        $email      = $_POST['#email'];
-        $telefone   = $_POST['#telefone'];
-        $cidade     = $_POST['#cidade'];
-        $assunto    = $_POST['#assunto'];
-        $mensagem   = $_POST['#mensagem'];
-
-        $email  = new contatoModel(
-                                        $nome,
-                                        $email,
-                                        $telefone,
-                                        $cidade,
-                                        $assunto,
-                                        $mensagem
-                                    );
-        $email->setDestinatario('_EMAIL_DESTINATARIO_');
-        $email->enviaEmail();
-    }
+    //if($request == 'salvaRegras')
+    //{
+        
+        var_dump($_POST['forward']);
+        //echo 'teste';
+    //}
 ?>
