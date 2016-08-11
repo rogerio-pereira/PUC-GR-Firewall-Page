@@ -13,6 +13,7 @@
          *    Variaveis
          */
         private $file;
+        private $filename;
 
 
         /*
@@ -26,7 +27,8 @@
          */
         public function __construct($file, $modo)
         {
-            $this->file = fopen($file, $modo);
+            $this->filename = $file;
+            $this->file     = fopen($file, $modo);
         }
 
         /**
@@ -78,6 +80,26 @@
         public function escrever($string)
         {
             return fwrite($this->file, $string);
+        }
+
+        /**
+          * Método ler
+          * Le o conteudo em um arquivo
+          * 
+          * @access public
+          * @return string  Conteúdo do arquivo
+          */
+        public function ler()
+        {
+            /*$conteudo = array();
+            while(!feof($this->file))
+            {
+                $conteudo[] = fgets($this->file);
+            }
+
+            return $conteudo;*/
+
+            return fread($this->file, filesize($this->filename));
         }
     }
 ?>

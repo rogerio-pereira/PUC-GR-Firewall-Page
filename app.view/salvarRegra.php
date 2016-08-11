@@ -13,6 +13,7 @@
 		/*
 		 * Vari?eis
 		 */
+		private $regras;
 
 
 		/**
@@ -24,7 +25,8 @@
 		 */
 		public function __construct()
 		{
-			
+			$this->regras = (new controladorArquivos('./app.files/firewall.txt', 'r'))->ler();
+			$this->regras = explode("\n", $this->regras);
 		}
 
 
@@ -123,6 +125,31 @@
 
 				<script type="text/javascript" src="/app.view/js/jsMascaras.min.js"></script>
 				<script type="text/javascript" src="/app.view/js/jsSalvarRegras.min.js"></script>
+
+				<script>$("input[name=operacao][value=<?=$this->regras[0]?>]").attr('checked', 'checked');</script>
+
+				<?php
+					unset($this->regras[0]);
+					unset($this->regras[sizeof($this->regras)]);
+
+					foreach ($this->regras as $regra) {
+						$regra = explode(' | ', $regra);
+
+						$regra[0] = ucfirst(strtolower($regra[0]));
+
+						?>
+							<script>
+								adicionaRegra('<?=$regra[0]?>');
+
+								var numero = $('#numeroCampos<?=$regra[0]?>').val();
+
+								$('#ipOrigem<?=$regra[0]?>_'+numero).val('<?=$regra[1]?>');
+								$('#protocolo<?=$regra[0]?>_'+numero).val('<?=$regra[2]?>');
+								$('#acao<?=$regra[0]?>_'+numero).val('<?=$regra[3]?>');
+							</script>
+						<?php
+					}
+				?>
 			<?php
 		}
 	}
