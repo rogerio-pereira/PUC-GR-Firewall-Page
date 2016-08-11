@@ -76,7 +76,6 @@ $(document).ready(function()
         e.preventDefault();
 
         var operacao    = $('input[name=operacao]:radio:checked').val();
-
         var forward     = buscaCampos('Forward');
         var input       = buscaCampos('Input');
         var output      = buscaCampos('Output');
@@ -84,7 +83,7 @@ $(document).ready(function()
         $.ajax
         ({
             type: "POST",
-            url: "../../app.control/ajax.php",
+            url: "../../app.control/controladorSalvarRegras.php",
             data: 
             {
                 operacao:   operacao,

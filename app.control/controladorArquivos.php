@@ -1,18 +1,19 @@
 <?php
     /**
-      * controladorConfiguracoes.php
-      * Classe de Controle controladorConfiguracoes
+      * controladorArquivos.php
+      * Classe de Controle controladorArquivos
       *
       * @author  Rogério Eduardo Pereira <rogerio@groupsofter.com.br>
       * @version 1.0
       * @access  public
       */
-    class controladorConfiguracoes
+    class controladorArquivos
     {
         /*
          *    Variaveis
          */
-        private $configuracao;
+        private $file;
+
 
         /*
          * Métodos
@@ -23,9 +24,20 @@
          * @access private
          * @return void
          */
-        public function __construct()
+        public function __construct($file, $modo)
         {
-            $this->configuracao = NULL;
+            $this->file = fopen($file, $modo);
+        }
+
+        /**
+         * Método Destrutor
+         *
+         * @access private
+         * @return void
+         */
+        public function __destruct()
+        {
+            fclose($this->file);
         }
 
         /**
@@ -56,22 +68,16 @@
         }
 
         /**
-         * Método getConfiguracoes
-         * Retorna as configura?es do banco de dados
-         * 
-         * @access public
-         * @return tbConfiguracoes   Configura?es do site
-         */
-        public function getConfiguracoes()
+          * Método escrever
+          * Escreve o conteudo em um arquivo
+          * 
+          * @access public
+          * @param  string $string  Conteudo que será escrito no arquivo
+          * @return int             Número de bytes escritos ou FALSE em caso de falha
+          */
+        public function escrever($string)
         {
-            $this->configuracao = NULL;
-            
-            //RECUPERA CONEXAO BANCO DE DADOS
-            TTransaction::open('my_bd_site');
-
-            $this->configuracao = (new tbConfiguracoes())->load(1);
-
-            return $this->configuracao;
+            return fwrite($this->file, $string);
         }
     }
 ?>
