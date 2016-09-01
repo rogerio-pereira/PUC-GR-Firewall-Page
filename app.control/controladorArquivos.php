@@ -99,7 +99,10 @@
 
             return $conteudo;*/
 
-            return fread($this->file, filesize($this->filename));
+            if(filesize($this->filename) > 0)
+                return fread($this->file, filesize($this->filename));
+            else 
+                return NULL;
         }
     }
 ?>

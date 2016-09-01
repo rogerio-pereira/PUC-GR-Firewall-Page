@@ -40,9 +40,7 @@
         ?>
             <!DOCTYPE HTML>
             <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
-                <head>
-                    <?php include_once 'meta.php'; ?>
-                    
+                <head>                    
                     <!--CSS-->
                     <?php include_once 'css/css.php'; ?>    
                     

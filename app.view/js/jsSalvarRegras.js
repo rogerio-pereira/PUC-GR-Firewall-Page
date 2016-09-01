@@ -2,7 +2,7 @@ function adicionaRegra(campo)
 {
     var numero = Number($('#numeroCampos'+campo).val()) + 1;
     var html =  "<div class='row' id='"+campo+"_"+numero+"'>                                                        "+
-                "    <div class='4u'>                                                                               "+
+                "    <div class='3u'>                                                                               "+
                 "        <input                                                                                     "+
                 "            type='text'                                                                            "+
                 "            id='ipOrigem"+campo+"_"+numero+"'                                                      "+
@@ -13,12 +13,33 @@ function adicionaRegra(campo)
                 "        >                                                                                          "+
                 "    </div>                                                                                         "+
                 "                                                                                                   "+
-                "    <div class='4u'>                                                                               "+
+                "    <div class='1u'>                                                                               "+
+                "        <input                                                                                     "+
+                "            type='number'                                                                            "+
+                "            id='portaOrigem"+campo+"_"+numero+"'                                                   "+
+                "            name='portaOrigem"+campo+"_"+numero+"'                                                 "+
+                "            placeholder='Porta de Origem'                                                          "+
+                "            required                                                                               "+
+                "        >                                                                                          "+
+                "    </div>                                                                                         "+
+                "                                                                                                   "+
+                "    <div class='3u'>                                                                               "+
                 "        <input                                                                                     "+
                 "            type='text'                                                                            "+
-                "            id='protocolo"+campo+"_"+numero+"'                                                     "+
-                "            name='protocolo"+campo+"_"+numero+"'                                                   "+
-                "            placeholder='Protocolo'                                                                "+
+                "            id='ipDestino"+campo+"_"+numero+"'                                                     "+
+                "            name='ipDestino"+campo+"_"+numero+"'                                                   "+
+                "            class='ip'                                                                             "+
+                "            placeholder='Ip de Destino'                                                            "+
+                "            required                                                                               "+
+                "        >                                                                                          "+
+                "    </div>                                                                                         "+
+                "                                                                                                   "+
+                "    <div class='1u'>                                                                               "+
+                "        <input                                                                                     "+
+                "            type='number'                                                                            "+
+                "            id='portaDestino"+campo+"_"+numero+"'                                                  "+
+                "            name='portaDestino"+campo+"_"+numero+"'                                                "+
+                "            placeholder='Porta de Destino'                                                         "+
                 "            required                                                                               "+
                 "        >                                                                                          "+
                 "    </div>                                                                                         "+
@@ -43,6 +64,11 @@ function adicionaRegra(campo)
     $('#campos'+campo).append(html);
     $('#numeroCampos'+campo).val(numero);
     $('.ip').mask('999.999.999.999');
+
+    if($('input[name=operacao]:radio:checked').val() == 'whitelist')
+        $('#acao'+campo+"_"+numero).val('ACCEPT');
+    else
+        $('#acao'+campo+"_"+numero).val('REJECT');
 }
 
 function apagar(campo, numero)
@@ -60,8 +86,10 @@ function buscaCampos(campo)
         var valores = [];
 
         valores[0]  = $('#ipOrigem'+campo+'_'+i).val();
-        valores[1]  = $('#protocolo'+campo+'_'+i).val();
-        valores[2]  = $('#acao'+campo+'_'+i).val();
+        valores[1]  = $('#portaOrigem'+campo+'_'+i).val();
+        valores[2]  = $('#ipDestino'+campo+'_'+i).val();
+        valores[3]  = $('#portaDestino'+campo+'_'+i).val();
+        valores[4]  = $('#acao'+campo+'_'+i).val();
 
         campos.push(valores);
     }
@@ -93,7 +121,10 @@ $(document).ready(function()
             },
             success: function(data)
             {
-                $('#retornoTeste').html(data);
+                if(data > '0')
+                    alert('Salvo com Sucesso!');
+                esle
+                    alert('Erro ao enviar os dados');
             },
             error: function(data)
             {

@@ -78,16 +78,25 @@
 
             //TABELA | IP | PROTOCOLO | AÇÂO
 
-            foreach ($this->forward as $forward) {
-                $string .= 'FORWARD'.' | '.$forward[0].' | '.strtolower($forward[1]).' | '.$forward[2]."\n";
+            if(isset($this->forward))
+            {
+                foreach ($this->forward as $forward) {
+                    $string .= 'FORWARD'.' | '.$forward[0].' | '.$forward[1].' | '.$forward[2].' | '.$forward[3].' | '.$forward[4]."\n";
+                }
             }
             
-            foreach ($this->input as $input) {
-                $string .= 'INPUT'.' | '.$input[0].' | '.strtolower($input[1]).' | '.$input[2]."\n";
+            if(isset($this->input))
+            {
+                foreach ($this->input as $input) {
+                    $string .= 'INPUT'.' | '.$input[0].' | '.$input[1].' | '.$input[2].' | '.$input[3].' | '.$input[4]."\n";
+                }
             }
             
-            foreach ($this->output as $output) {
-                $string .= 'OUTPUT'.' | '.$output[0].' | '.strtolower($output[1]).' | '.$output[2]."\n";
+            if(isset($this->output))
+            {
+                foreach ($this->output as $output) {
+                    $string .= 'OUTPUT'.' | '.$output[0].' | '.$output[1].' | '.$output[2].' | '.$output[3].' | '.$output[4]."\n";
+                }
             }
 
             echo $this->controladorArquivo->escrever($string);

@@ -144,8 +144,10 @@
 								var numero = $('#numeroCampos<?=$regra[0]?>').val();
 
 								$('#ipOrigem<?=$regra[0]?>_'+numero).val('<?=$regra[1]?>');
-								$('#protocolo<?=$regra[0]?>_'+numero).val('<?=$regra[2]?>');
-								$('#acao<?=$regra[0]?>_'+numero).val('<?=$regra[3]?>');
+								$('#portaOrigem<?=$regra[0]?>_'+numero).val('<?=$regra[2]?>');
+								$('#ipDestino<?=$regra[0]?>_'+numero).val('<?=$regra[3]?>');
+								$('#portaDestino<?=$regra[0]?>_'+numero).val('<?=$regra[4]?>');
+								$('#acao<?=$regra[0]?>_'+numero).val('<?=$regra[5]?>');
 							</script>
 						<?php
 					}
